@@ -94,9 +94,6 @@ add_action( 'widgets_init', 'ufclas_newsletter_widgets_init' );
 function ufclas_newsletter_scripts() {
 	wp_enqueue_style( 'ufclas-newsletter-style', get_stylesheet_uri() );
 	
-	// Enqueue 960 grid system (800/772px)
-	wp_enqueue_style( 'grid', get_template_directory_uri() . '/css/grid.css' );
-
 	wp_enqueue_script( 'ufclas-newsletter-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'ufclas-newsletter-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
@@ -104,6 +101,10 @@ function ufclas_newsletter_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+	
+	// Add grid and custom styles
+	wp_enqueue_style( 'grid', get_template_directory_uri() . '/css/grid.css');
+	wp_enqueue_style( 'newsletter', get_template_directory_uri() . '/css/newsletter.css');
 }
 add_action( 'wp_enqueue_scripts', 'ufclas_newsletter_scripts' );
 
