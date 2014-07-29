@@ -93,6 +93,9 @@ add_action( 'widgets_init', 'ufclas_newsletter_widgets_init' );
  */
 function ufclas_newsletter_scripts() {
 	wp_enqueue_style( 'ufclas-newsletter-style', get_stylesheet_uri() );
+	
+	// Enqueue 960 grid system (800/772px)
+	wp_enqueue_style( 'grid', get_template_directory_uri() . '/css/grid.css' );
 
 	wp_enqueue_script( 'ufclas-newsletter-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
