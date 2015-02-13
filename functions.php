@@ -9,7 +9,7 @@
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 640; /* pixels */
+	$content_width = 502; /* pixels */
 }
 
 if ( ! function_exists( 'ufclas_newsletter_setup' ) ) :
@@ -58,12 +58,22 @@ function ufclas_newsletter_setup() {
 	 * See http://codex.wordpress.org/Post_Formats
 	 */
 	add_theme_support( 'post-formats', array(
-		'aside', 'image', 'video', 'quote', 'link'
+		'aside'
 	) );
 
+	// Setup the WordPress core custom header feature.
+	add_theme_support( 'custom-header', apply_filters( 'ufclas_newsletter_custom_header_args', array(
+		'flex-width' => true,
+		'width' => 800,
+		'flex-height' => true,
+		'height' => '105',
+		'uploads' => true,
+		'header-text' => false,
+	) ) );
+	
 	// Setup the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'ufclas_newsletter_custom_background_args', array(
-		'default-color' => 'ffffff',
+		'default-color' => 'dddddd',
 		'default-image' => '',
 	) ) );
 }
@@ -79,6 +89,15 @@ function ufclas_newsletter_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'ufclas-newsletter' ),
 		'id'            => 'sidebar-1',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="widget-title">',
+		'after_title'   => '</h1>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer', 'ufclas-newsletter' ),
+		'id'            => 'footer-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
@@ -132,3 +151,34 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+// Add a read more link for article excerpts
+function ufclas_newsletter_readmore( $more ) {
+	return '... <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . __('Read More', 'ufclas_newsletter') . '</a>';
+}
+add_filter('excerpt_more', 'ufclas_newsletter_readmore');
+
+// Get the current issue cover image
+function get_ufclas_newsletter_issue_cover_url( $issue_id = false ){
+	if(is_tax('issuem_issue')){
+		$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+		$issue_id = $term->term_id;		
+	}
+	$image_src = wp_get_attachment_image_src( get_issuem_issue_cover( $issue_id ), 'full' );
+	return $image_src[0];
+}
+
+// Get the background image style for the cover image
+function get_ufclas_newsletter_issue_cover_style( $issue_id = false ){
+	$toc_background = get_ufclas_newsletter_issue_cover_url();
+	return ( !empty($toc_background) )? 'style="background-image:url(' . $toc_background . ');"':'';
+}
+
+// Get the current issue cover image
+function get_ufclas_newsletter_issue_title( $issue_title = false ){
+	if(is_tax('issuem_issue')){
+		$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+		$issue_title = $term->name;		
+	}
+	return $issue_title;
+}

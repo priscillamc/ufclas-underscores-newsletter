@@ -1,2 +1,179 @@
+body {
+	background-color: #ddd;	
+}
+#masthead {
+	margin-top: 30px;
+	position: relative;
+}
+#masthead .issuem_title {
+	position: relative;
+	top: 0;
+	right: 0;
+	text-align: right;
+	color: #fff;
+	margin-right: 18px;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+.site-footer {
+	margin-bottom: 30px;
+	min-height: 40px;
+	overflow: visible;
+}
+.site-branding {
+	height: 105px;
+	background-color: #0057B1;
+	background-image: url('../images/Psych_Header.jpg');
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+.site-title, .site-description {
+	text-indent: -9999px;
+}
+.site-info {
+	background-color: #3050B7;
+	overflow: visible;
+	padding-top: 18px;
+	padding-bottom: 18px;
+	color: #eee;
+}
+.footer-logo {
+	text-align: center;	
+}
+.footer-content {
+	padding-left: 18px;	
+}
+#content {
+	background-color: #fff;
+	background-image: url('../images/bg_blue.png');
+	background-position: top right;
+	background-repeat: repeat-y;
+}
+#issue-toc {
+	height:194px;
+	background-color: #3050B7;
+	background-image: url('../images/Psych_Image.jpg');
+	background-position: top right;
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+#primary, #secondary {
+	padding: 14px;
+}
+#primary {
+	background-color: #fff;
+}
+#secondary {
+	background-color: #DFEEFF;
+	width: 254px;
+	margin-right: 0;
+}
+.main-navigation {
+	float: none;
+	background-color: #3050B7;
+	overflow: auto;
+}
+body,
+button,
+input,
+select,
+textarea {
+	font-family: Arial, "Lucida Grande", sans-serif;
+	font-size: 16px;
+	font-size: 1.3rem;
+	line-height: 1.5;
+}
+h1, h2, h3 {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	letter-spacing: -1px;
+}
+h1.entry-title, h1.page-title {
+	font-weight: bold;
+	font-size: 2.2rem;
+	color: #0057b1;
+}
+.archive h1.entry-title, .archive h1.page-title {
+	font-weight: normal;
+	font-size: 1em;
+	color: #333;
+}
+.archive .page-header {
+	Xmargin-bottom: -18px;	
+}
+.issuem_article h2, h2.entry-title {
+	font-size: 1.8rem;	
+}
+.article {
+	margin-top: 0;	
+}
+.page-content, .entry-content, .entry-summary {
+	margin-top: 0.5em;
+}
+.entry-meta {
+	font-style: italic;	
+}
+.read-more {
+	font-size: 0.9em;	
+}
 
-
+a:link, a:visited {
+	text-decoration: none;
+	font-weight: bold;
+	color: #0057B1;
+}
+a:hover, a:active {
+	text-decoration: underline;
+}
+h1 a:link, h1 a:visited,
+h2 a:link, h2 a:visited,
+h3 a:link, h3 a:visited, {
+	color: #0057B1;
+}
+.site-footer a:link, 
+.site-footer a:visited,
+.menu a:link, 
+.menu a:visited  {
+	color: #fff;	
+}
+#issue-toc .toc-content {
+	margin-left: 0;
+	margin-right: 0;
+	width: 278px;
+	height: 194px;
+	overflow: hidden;
+	border-bottom: 1px solid #5783AF;
+}
+#issue-toc .hidden {
+	display: none;
+}
+#issue-toc a {
+	color: #333;
+	color: #eee;
+	font-size: 1em;
+	line-height: 1.2em;
+	background-image: url('../images/Arrows_trans.png');
+	background-position: 18px -3px;
+	background-repeat: no-repeat;
+	display: block;
+	padding: 12px 6px 12px 32px;
+	border-top: 1px solid #5783AF;
+	min-height: 40px;
+}
+a.post-edit-link {
+	color: #777;
+	font-weight: normal;
+	text-decoration: underline;
+}
+.menu-main-menu-container .menu {
+	margin: 0;
+	list-style-type: none;
+}
+.menu-main-menu-container .menu-item {
+	display: inline-block;
+	list-style-type: none;
+	padding: 0 1em 0 0;
+}
+#site-navigation {
+	text-align: right;	
+}

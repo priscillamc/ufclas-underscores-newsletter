@@ -7,14 +7,13 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area container_12">
+	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
-
-			<?php get_template_part( 'content', 'single' ); ?>
-
-			<?php ufclas_newsletter_post_nav(); ?>
+			
+			<?php 
+				get_template_part( 'content', get_post_type() ); ?>
 
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template
@@ -28,5 +27,5 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<?php //get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -7,14 +7,19 @@
  * @package ufclas-newsletter
  */
 ?>
-
+	</div><!-- .content-wrap -->
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info container_12">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'ufclas-newsletter' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'ufclas-newsletter' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'ufclas-newsletter' ), 'ufclas-newsletter', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
+		<div class="site-info container_12 clearfix">
+			<div class="footer-content grid_8">
+            	<?php 
+					dynamic_sidebar( 'footer-1' ); 
+				?>
+            </div>
+            <div class="footer-logo grid_4">
+            	<a href="http://www.ufl.edu/"><img alt="University of Florida" src="<?php echo get_stylesheet_directory_uri(); ?>/images/UFsignature_white.png"></a>
+            </div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
